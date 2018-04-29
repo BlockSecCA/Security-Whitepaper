@@ -1,0 +1,721 @@
+Blockchain and Information Security
+===================================
+Carlos Dominguez CISA,CISSP, CCBP <carlos@altoazul.com>
+v1.0.1, 2018-03
+:toc:
+
+[abstract] 
+= Abstract
+Traditional Information Security practices were developed for centralized, hierarchical top-down type of information systems, where the security controls are expected to provide deterministic outcomes, and are implemented with command-and-control governance in mind.
+
+The distributed systems involved in the application of blockchain technology turn the hierarchical model on its head by removing the command and control centers. This lack of “center” requires to consider security controls as per their impact to the system emergent attributes, where the expected behavior of the part could differ from the behavior of the whole.
+
+As Blockchain Technology is adopted as a new value-moving layer on top of the Internet (another distributed system), it creates an opportunity to address existing challenges via new methods. Those new methods are a type of control design resulting from novel combination of cryptography,
+game theory, behavior al economics and network effects, now branded as Cryptoeconomics.
+
+Information Security practitioners working on Blockchain technology implementations would be advised to consider a combination of time tested practices applicable to any IT systems, with the emerging Cryptoeconomics practices.
+
+:numbered:
+== Introduction
+
+_“The journey of a thousand miles begins with a cash advance.” - Alton Brown_
+
+This paper presents a review of current blockchain technologies, from a point of view of an Information Security practitioner and as per standing Information Security practices.
+
+Unlike most blockchain reviews that address purpose and function as evaluation basis, this paper looks at blockchain technology implementations as just another IT System that needs to be
+characterized, analysed and reviewed by Information Security practitioners.
+
+=== Audience
+
+This document was written with Information Security Practitioners as a target audience, and assumes a general interest on blockchain technology.
+
+It does not include any distinctions for the practitioner’s position, experience, employment, industry or professional associations.
+
+It will include distinctions for generic Information Security Roles or Practice, as to provide a view into topics that could be of interest for those roles or practices.
+
+=== Assumptions
+
+This paper assumes the data and services provided by blockchain implementations are of sensitive nature, and of value to the implementation participants.
+
+The terms “blockchain” and “blockchain technology” will be understood to mean the same thing.
+
+It is also assumed the audience has a general familiarity with Information Security Practice and Body of Knowledge.
+
+=== In Scope
+
+As there are a potentially large number of variations for blockchain technology implementations, this paper addresses the most commonly used ones as the time of its writing.
+
+While the practice of Information Security is traditionally performed in the service of structured organizations, the paper addresses the public aspects of blockchain technology due to its potential impacts to society.
+
+=== Out of scope
+
+
+The following is not in scope of analysis:
+
+* Legal, Regulatory, Compliance, Economic or Political implications due to the type of blockchain, its function or applicable jurisdictions * A detailed review or risk assessment for any blockchain implementation, or its fitness for meeting functional business requirements of any sort
+
+* Endorsements or recommendations for the use of the technologies being discussed
+* Business Case analysis for blockchain technology fitness
+
+
+== Approach
+
+_“Stay committed to your decisions, but stay flexible in your approach. - Tony Robbins”_
+
+This paper will discuss blockchain technology in two fronts:
+
+* A characterization of the blockchain as an IT System, and specifically about the attributes inherent to the technology and how those fit to expected security attributes (C.I.A triad). Also included are descriptions of design styles and implementation types
+* The impact to the Information Security Practice as performed by security architects, applications security SME’s, security operations, audit and other practice specializations
+
+The analysis will focus on issues or concerns specifics to the adoption or implementation of blockchain technologies as a type of distributed system.
+
+=== Method
+
+The analysis will review the CIA (Confidentiality, Integrity, Availability) properties for a narrow subset of potential blockchain types and as per the technology current adoption. The types are:
+
+* Consortium Blockchain
+** Distributed ledgers vs full blockchain
+** Open or close sourced
+
+* Public Blockchain
+** Consensus: Proof of Work or Proof of Stake
+** Lightweight node vs full-node
+** Privacy Preserving vs Pseudo-Anonymous
+** Scripting capabilities
+** Centralized vs Decentralized Governance
+** Centralized vs Decentralized Infrastructure
+
+== A brief history of The Blockchain
+
+_“You Keep Using That Word, I Do Not Think It Means What You Think It Means”, - Iñigo Montoya in The Princess Bride_
+
+It should be noted that the term “blockchain” is ambiguous and misleading as it could refer to:
+
+* Bitcoin or any other cryptocurrency
+* The underlying data structure used by cryptocurrencies
+* The underlying technology used by cryptocurrencies, including consensus algorithms.
+* The data structure in distributed ledgers or databases
+* The technology used in distributed ledgers or databases
+* The algorithmic incentives used to promote convergence of state in distributed systems
+
+Early references to “blockchain” related terms include the following, just to name a few:
+
+* “Cipher Block Chaining”, invented and described in 1976 by Ehrsam, Meyer, Smith and Tuchman
+* “Chain of Blocks” included in HashCash proposal in 1997
+* The ““hash-linked time-stamping” technology used by Estonia since 2007, rebranded as “blockchain technology”
+* “Chain of Blocks” in Satoshi Nakamoto white paper in 2008
+* “Blockchain” is used in numerous online forums, starting in 2009 in reference to bitcoin, and to everything else later on
+
+=== Causality
+
+While most of the technical solutions required for blockchain technology existed prior to the Bitcoin whitepaper, they were re-purposed for the goal of creating a peer-to-peer cash system that does not require trusted parties to move funds and that is censorship resistant.
+
+The following is an attempt to enumerate the causal roots and pre-conditions that resulted in the Blockchain Technology included in Bitcoin:
+
+* The Open Internet
+* Hashing Algorithms, Merkle Trees and Public Key Cryptography
+* Byzantine Fault Tolerance
+* Personal Computing
+* Digitalization of Finance
+* Open Source movement and Hacker Ethos
+* Libertarianism and CypherPunk movements
+* Peer to Peer networks
+* 2007-2008 Financial Crisis
+
+=== Adoption Drivers
+
+Blockchain technology has the potential to improve upon current information systems as it provides built-in decentralization and dis-intermediation mechanisms , as well as high availability, high integrity, transparency and accountability.
+
+The technology also provides a solution to the double spend problem of with digital assets without the need of a centralized ledger. It uses the internet and cryptography to transfer and track asset ownership and prevent duplication.
+
+Blockchain Technology adoption by is driven by either a revision of current business model for cost savings, or by new revenue generation as per new business models.
+
+==== Consortium Adoption
+
+The following are examples of adoption by Consortiums:
+
+* Replacing or augmenting legacy systems to enabling secure data sharing and transaction processing for organizations participating in a consortium
+* Simplifying complex accounting systems across multiple environments, to a single ledger to manage financial positions
+* Regulatory compliance by building regulatory rules in code via smart contracts to automate transaction compliance for all actors, including propagation of new regulatory rules across the network
+* Reduce auditing costs by providing a immutable, self-audited and self-reporting transparent ledger that simplifies audit engagements and simplifies internal monitoring
+
+* Cost reductions by removing existing mediators and implementing a peer to peer transaction processing and settlement
+
+* Orchestration and incentivization of participants in complex supply chain operations
+
+* Tracking of assets in complex multi-participant order fulfillment systems
+
+==== Public Adoption
+
+
+The adoption of blockchain technologies by the public at large has the following intertwined motivations, which could also be present in Consortium motivations but are more accented in the public domain:
+
+* A philosophical or political adherence to uncensored and decentralized financial or monetary instruments
+* Profit expectations as per explicit or implied characterization of those financial or monetary instruments
+* Early adoption of new technologies for managing digital value, that could result on the creation of a brand new ecosystem (aka Internet of Value)
+
+== Blockchain Technology Overview
+
+_“Knowledge is knowing that a tomato is a fruit, wisdom is not putting it in a fruit salad.” ― Miles Kington_
+
+Blockchain Technology is a practical answer to the challenge of building a distributed, decentralized, asynchronous system made up of individual nodes, that is required to be fault tolerant in the presence of unknown states for its participating nodes. The challenge is formally known as Byzantine fault tolerance, described by Leslie Lamport, Robert Shostak and Marshall Pease in their 1982 paper.
+
+From the point of view of an InfoSec practitioner the blockchain as a system can be described as a fault tolerant distributed system with a number of components and layers, and which has a number of explicit security attributes as well as implicit or emergent security attributes.
+
+=== Distributed Components
+
+The components are the ones presented in the Bitcoin whitepaper published by Satoshi Nakamoto, and which includes the following components:
+
+* A data structure, which also can be described as a ledger or the “chain of blocks”
+* A peer-to-peer network
+* Consensus algorithms and associated computation capabilities
+* Application Interfaces
+
+==== Data structure
+
+
+The shared data structure is composed of recorded facts grouped into data blocks, and linked into a linear list of blocks. Each block contains a reference (pointer) to its predecessor in the form of a digest of its predecessor data. The state contained in the block describes facts applicable to the nodes, described via hashes and participants digital signatures.
+
+==== Network
+
+Protocols and specifications governing peer-to-peer nodes interactions across the network and the propagation of proposed and accepted new states.
+
+==== Consensus and Computation
+
+The block data also contains instructions to be executed when generating a new state (new block) and could be applied against the facts already recorded in previously accepted blocks, and as per the authorization rules enforced by digital signatures and integrity validations enforced
+by the use of hashes.
+
+The results of the computations are included in proposed new states to be processed by each node as per the validation and acceptance rules to determine the valid new state from a pool of competing proposals. This is also referred to as the consensus protocol.
+
+==== Interfaces
+
+Each participating node also includes standardized interfaces that enable the system integration with external systems and the node operator
+
+=== Layers
+
+Another approach to characterize the blockchain is by examining how the components are organized in layers at the node level and at the system level
+
+As described a blockchain node blockchain has four layers:
+
+* The infrastructure required to host a node
+* The network layer that enables peer to peer communication and grants access to the system and its interfaces
+* The messaging layer that propagates updates and proposals, and allows to query the data.
+* The consensus layer for the proposal, propagation and acceptance of new states
+
+As a system, two additional layer could be also considered:
+
+* The layer supporting blockchain interaction with infrastructure that is not part of the network ( off-chain components)
+* A governance layer for deciding on changes to the overall distributed system protocols that define the network, its messaging and consensus mechanism. The governance layer could be off-chain (design committee) or on-chain as distributed governance rules
+
+=== Emergent Properties
+
+
+The combination of distributed data structure, network computer and interfaces results in a Distributed System where:
+
+* There is an immutable record of the system state in the form of ordered transitions
+* All the participants have access to the system state history, and detailed state information as per embedded authorization
+* All the participants can validate the integrity of the data
+
+* Data is replicated across the nodes in the network
+* There could competing state change proposals propagating across the system
+* New state acceptance is by propagation and convergence of consensus across the system
+
+=== Inherent security attributes
+
+As described, the blockchain has these inherent attributes:
+
+* Block generation time-stamping as every block contains information about all the previous blocks, up to the first block in the chain. The only possible way to order the blocks is the one where the block order aligns with the digest values
+* Tamper Detection as changes in block contents would break the chain ordering
+
+* Tamper Resistance as changes to a block requires to recreate computations and digests for the next block, and all the following blocks
+
+* Highly Available as the state is replicated across all active participating nodes
+
+* Trustless computation where nodes can accept computation outputs produced by others without requiring prior trust agreements, by means of the validations of integrity, signatures and applicable consensus
+
+The security attributes are directly proportional to the length (referred to as height) of the data structure and the number of participating nodes, and inversely proportional to the centralization of the infrastructure ownership.
+
+=== Technology Taxonomy
+
+The technology taxonomy and classification is an analysis exercise of the design styles and implementation details.
+
+The current landscape of the blockchain technology includes a number of platforms and implementation with different answers to the questions below. Those could be grouped to simplify analysis but the grouping should be examined as the landscape evolves.
+
+* Consensus Mechanism: What is the protocol to determine consensus across the network to determine the system new state? How does it resolve conflicts and deal with network and node faults? Are there standards and rules for how every node exchanges information? How are the rules to be applied for all nodes to agree on the integrity of that data?
+
+* Participation: Is the blockchain open to the public at large, a group of entities sharing common goals (consortium) or will it be privately owned and operated?
+
+* Incentives: what is the incentive scheme for node participation in the Consensus, as per their specialization? How does it support with the Consensus Mechanism?
+
+* Governance: How are the rules changes? Who gets to change the rules and how?
+
+* Party Identity: how are parties represented in the system? Is their identity anonymous or transparent? How does their identity relate to their access rights?
+
+* Transaction propagation: Is there is a standard network protocol that allows every participating node to receive transactions and apply the same validation rules? Is there a standard protocol to isolate node access to some transactions or messages (channels)? Are there
+transactions or messages executed off-chain? 
+
+The blockchain can be implemented with a number of variations for how the layers and related protocols operate. The variations could be categorized by the outcome of this selections as a specific technical architecture:
+
+* What the block data represents (business function)?
+* What is the number and distribution of the nodes?
+* How are the nodes identity managed?
+* How are the nodes access rights to block data and messages managed?
+* Which network protocols are required to create the blockchain network?
+* Which cryptographic primitives are involved?
+* What are the types of events and messages that result on new blocks?
+* How are the events and messages are processed?
+* What is the expected performance in block throughput?
+* What are the governance methods to introduce design changes?
+* What are the methods for enabling blockchain interaction with off-chain data and systems?
+* What are the technologies and code base used for the implementation?
+* What is the type and usage of in-chain executable code?
+* What are the types of nodes and their function (node specialization)?
+* What are the controls for users identity and access management across all the layers?
+
+==== Simplified Taxonomy
+
+The following are practical groupings to simplify the scope of analysis as per current technologies. The groupings can be by attributes and function, as per answers to the questions above.
+
+Simplified grouping by attributes 
+
+* Consensus Protocol (Proof of Work, Proof of Stake, Proof of Authority, Practical Byzantine Fault Tolerance)
+* Permissioned vs permissionless (also known as Consortium vs Public)
+* The use of on-chain code or scripts (smart contracts)
+* The use of off-chain infrastructure and data (Oracles)
+* Open Source vs Proprietary
+* Governance rules
+
+Simplified grouping by function
+
+* Cryptocurrencies
+* Digital Assets and Tokens
+* Distributed Ledgers (Distributed Storage, Healthcare, Elections, Content Ownership, Public Value via Self-organization, Vested Responsibility, Distributed Identity)
+* Digital Financial Services (Asset Management, Insurance,
+Micro-transactions, Trading Platforms, Merchant Services, Digital Brokerages, Exchanges)
+* Smart Property (IoT, Provenance Tracking)
+* Decentralized Commodities
+
+Blockchain can also be grouped as per their procurement model which includes cloud offerings (SaaS, PaaS, IaaS) or bundles open or closed source software.
+
+== Analysis
+
+_“If you have built castles in the air, your work need not be lost; that is where they should be. Now put the foundations under them.” ― Henry David Thoreau, Walden_
+
+Blockchain implementations can be characterized as per the choices made regarding the protocols and layers functionalities that enable its business purpose, and in terms of the blockchain business attributes.
+
+Those choices result on the presence, or lack, of security attributes that could be evaluated against the expected security properties of the system, its components and layers.
+
+=== Role of Cryptography
+
+As defined from inception by the first blockchain definition found on bitcoin, blockchain technology relies on cryptographic methods to maintain the integrity of the data structure and its transactions, and the access for the transaction actors. This means that some of the
+traditional problems found on Information Systems such as Confidentiality, Integrity, Availability and Non-repudiation could be addressed upfront as core functions of the blockchain.
+
+Blockchain Technology relies on cryptographic hashes (digests) to provide integrity assurances for transaction data as well as to link blocks to predecessors. It also relies on digital signatures from user provided encryptions keys, to validate proposed transactions.
+
+=== Security Attributes
+
+As an Information Technology System the blockchain could be expected to maintain its security properties, just as any other Information System does. Those properties are expected to include controls addressing the protection of the Confidentiality, Integrity, Availability and Non-Repudiation attributes of the system components and layers.
+
+* Confidentiality: the assurances that that information is not made available or disclosed to unauthorized individuals, entities, or processes. This property can also be interpreted as Privacy properties
+* Integrity: the assurances for the accuracy and completeness of data over its entire life-cycle
+* Availability: the assurances that the system will be available for use when required
+* Non-Repudiation: assurances for parties involved in a transaction not being able to deny having received a transaction nor can the other party deny having sent a transaction
+
+The qualification (or quantification) of the security properties to determine the control environment required to maintain the attributes is specific to each implementation, and as per the options and choices carried on each of the layers, and ultimately as per its business
+purpose.
+
+Those same options and choices could expose an implementation to additional security requirements as per organizational internal drivers (security and risk posture) as well as external drivers such as client/customer expectations, legal and regulatory.
+
+=== Risk Factors
+
+Despite its inherent security attributes, even properly designed and implemented blockchain technology is still susceptible to other factors that could compromise its security. While blockchain technology can provide a model for operating a reliable transaction network in an
+adversarial unreliable environment, it is not exempt from vulnerabilities and risks applicable to distributed systems.
+
+To be considered:
+
+* Network effects: a blockchain is as good as its size in terms of adoption as the technology is vulnerable when there is a small number of participating nodes. The larger the network, the better its chances at defeating attacks
+
+* Age and size of its data: a blockchain is also as good as the size of its ledger as it can be vulnerable when there is a small number or generated blocks. The larger its dataset is, the better its chances at defeating attacks
+
+* Centralization/Decentralization: A blockchain implementation with a large number of nodes and ledger can still be rendered vulnerable as per the underlying infrastructure degree of centralization. The technology is especially susceptible to the centralization of the underlying
+network, which can be manipulated at its lower layers to impact peer-to-peer connectivity and consensus convergence
+
+* Quantum computing: while industry standard cryptographic hashing algorithms are quantum resistant, the public key elliptic-curve cryptography used for digital signatures is expected to be rendered vulnerable by quantum computers. Even when quantum resistant algorithms could be adopted, the current proposals under review by NIST include large key sizes which are  impractical for today’s blockchains
+
+* Privacy impacts: blockchain inherent immutability could result on privacy challenges if the initial consent is retracted, or the information needs to be corrected. Any PII data recorded in a blockchain (public or consortium) can be expected to comply with current privacy
+regulations 
+
+=== Public Blockchains
+
+A public blockchain is one with open participation and where all of the records are open to public inspection, with the network operating over the public internet. This type of blockchain is often referred to be “trustless” as the participants are not required to have prior contact
+or formal arrangements, but to trust the outcome of the consensus algorithm and the finality of the transactions recorded in the blocks.
+
+Public blockchains are also referred to be “censorship resistant” as the consensus only determines what is a valid transaction by examining its correctness, but does not validate or censor content included in the transactions.
+
+A key differentiation between public blockchain and other distributed system such as the internet, is in that blockchain technology being closely tied to “value” and “transfer of value”, and which requires a financial stake in the consensus for the network to operate (cryptoeconomics). This means most public blockchains carry an overall financial valuation as per the services it provides to the community.
+
+==== Confidentiality
+
+By their nature, public blockchains make the historical ledger available to anyone able to participate, without censorship, including all proposed transactions and the operation of the consensus algorithm.
+
+Another feature of most public blockchains is in the consensus algorithm independence from network/channel security, where all transactions are conducted in plain view (plain text) without the loss of integrity. 
+
+Public blockchains don't make use of data encryption in their communication as there are no keys or certificates provided with the node code, and the user bring their own to enable the required digital signatures.
+
+This doesn't mean participants are directly identifiable, but it does allows to assign transactions to a given set of public keys to track stake and involvement. While this level of transparency was desirable in Bitcoin, new public blockchains are implementing privacy  mechanisms to prevent the association of transactions to keys, or obscure transaction data.
+
+==== Availability
+
+Public blockchains display a high grade of availability, which grows with adoption (network effect). Bitcoin as the oldest blockchain in existence has displayed remarkable abilities to deal with denials of services and jurisdiction wide censorship without significant service
+interruptions, for a time period that exceeds most technologies lifecycle.
+
+This does not mean this attribute will remain the same as adoption success also provides node owners with a financial incentive for the centralization of the underlying infrastructure (compute and network) and towards a monopoly of transaction processing. This degree of
+centralization is observable due to transaction transparency and and could potentially be involved in the consensus algorithms as a countermeasure.
+
+==== Integrity
+
+This is where blockchain technology excels as it is the main feature included from inception by using hashing algorithms, and unlike centralized technologies it improves with adoption and user base growth.
+
+A properly designed blockchain consensus, by means of cryptoeconomic mechanisms and incentives , would render its data nearly unalterable by any parties regardless of their size and funding.
+
+A special note should be taken that while very high integrity is a desirable feature, integrity "maximalism" could also lead to challenges for some use cases. One clear example of this is on the technical impossibility re-keying recorded transactions with a new encryption key, due to a key compromise or revocation. Another example is in EU “right to be forgotten”, which can not be implemented on most existing public blockchains as there are no technical means to delete  transaction data.
+
+==== Roles and Responsibilities
+
+There are two basic types of participants:
+
+The developers producing the code that makes up a node basic functions and including the consensus algorithm. By virtue of being the source of the consensus algorithm the developers are also the ones that enable changes to the algorithm and which is a form of governance.
+
+The users that operate a node of some sort which could be either a full node or a lightweight node (such as the ones found in mobile devices). 
+
+The users are responsible for maintaining their own encryption keys, and could also participate in the consensus by adding their collective weight behind the determination of the new blocks
+
+==== Infrastructure
+
+Nodes in a public public blockchain usually don't have a prescribed platform and could include anything that is compatible with the code base. The infrastructure not only includes the compute platform but also the underlying network.
+
+==== Privileges
+
+Public blockchains are egalitarian in the operational sense that all nodes are provided with the same level of access to the transaction record (ledger). Node specialization does occur by integration of its interfaces with specialized software and using the network as a
+platform.
+
+==== Identity and Access
+
+As a result of the “bring your own keys and infrastructure” approach, public blockchains don't have any explicit requirements for identity or access to operate a node and propose new  transactions. This type of anonymity is also extended to the code base authorship for blockchains
+that make use of open source code repositories.
+
+==== Software
+
+While public blockchains can be assumed to be based on open source code, this is not necessarily true for all. The majority of public blockchains do make use of open source code which provides transparency for the node functions, which is a form of assurance by transparency.
+
+There is a second layer of code that relies on the blockchain as a state machine, to execute complex transaction scripts by using the underlying software primitives and interfaces. This type of code is also known as smart contracts, but it is not part of the base code required to operate
+a node and it is maintained by the blockchain users themselves.
+
+==== Governance and Assurance
+
+The philosophy of design for must public blockchains imply the consensus algorithm is the mechanism for governance and assurance controls. This assumption could be true for the operational aspects of the blockchain it does not hold for the core developers. Those could exercise their control over the source code without consultation from the network if  they also hold a stake in the blockchain financial valuation.
+
+While some developers are well known and carry informal authority or leadership within a community (usually referred to as core developers), this is not formal governance or assurance even when they hold a financial stake.
+
+On the upside, public blockchains are self-auditing as the integrity and correctness validations are usually incorporated in the consensus algorithms and executed by the participating nodes for every new block.
+
+This form of “collective governance and assurance” has as the community taking votes by its participation in the network, to express their conformity or opposition to its current status and upcoming changes.
+
+===Consortium Blockchains
+
+A consortium blockchain is one where participant trust is established before and outside a technical implementation, and is only open for participation as per formal agreement and  governance of the involved parties.
+
+This type of blockchain system has many similarities to public blockchains as it could use the same principles for the underlying shared ledger technology, node software, peer to peer  communication and some form of consensus mechanism.
+
+A key differentiation for consortium implementations are on the purpose and size, which usually involves a number of participants looking to address a narrow use case, for a particular industry. Another variation could be an internal implementation for a very large organization that
+needs to perform internal coordination or records across many parties. 
+
+==== Confidentiality
+
+Consortium blockchains are usually designed for High Confidentiality where only the participants involved in a transaction can observe the records. These controls make use of message and channel encryption to protect the confidentiality of the data, and direct peer communication as opposed to network broadcast.
+
+Depending on the implementation, there could be some privacy challenges if the consensus includes a review of transaction history to determine if the public keys and ledger integrity remain valid , where transactions with other parties could be exposed as the node walks back the ledger entries.
+
+==== Availability
+
+The availability of a consortium blockchain is not significantly better than any system where two parties exchange information, as each party ledger copy may only include relevant entries. This means the whole ledger may not be recoverable due to the data loss from the participating nodes.
+
+Parties looking to enter into a consortium should consider their own availability as being critical to the consortium, and include a sufficient number of redundant nodes as per current availability practices. Another consideration is on the number an appointment of
+specialized nodes, as to increase availability and fault tolerance. 
+
+Due to their potential size limitations consortiums are more susceptible to denial of service attacks. An example of this would be blocking transactions that could deny transaction services. This could be addressed via cryptoeconomics incentives (not usual approach) , or be resolving by traditional means as per the formal arrangements.
+
+==== Integrity
+
+The design of the ledger includes considerations to integrity by the inclusion of digests (hashes), but could produce partially effective controls due to the network size, depth of the ledger or type of consensus being implemented where a participant could attempt to re-write ledger entries by re-working the digests.
+
+This weakness could be mitigated by the fact that participants engaged in multilateral  transactions would retain a copy of the ledger including transaction resolutions, to be used to clear discrepancies. There could also be special auditing nodes not accessible by all participants (for privacy preservation) that could be used to address ledger mismatches. 
+
+Ultimately integrity concerns could be a function of the off-chain governance controls established as part of the consortium working agreement.
+
+==== Roles and Responsibilities
+
+Consortium blockchains roles are assigned as per prior agreement and could differ for every implementation and as per industry needs. This assignment could be technical, but also at the process level as per an existing agreement. Some roles may not be required to have a technical
+implementation.
+
+==== Infrastructure
+
+Consortium nodes would be deployed as per the technical requirements of the solution provider, on a network of their preference. It could consist ==== Privileges, Identity , Access, Governance and Assurance
+
+Another differentiation for consortium blockchains is on nodes specialization, to support a particular consensus algorithm where not all nodes are involved in processing transactions.
+
+Examples of these type of nodes include notary nodes that implement consensus and endorser type nodes that validate transaction integrity before consensus. The specialization and assignment of special nodes is as per participant agreements.
+
+In this aspect the consortium implementation would be similar to traditional IT systems, where roles, responsibilities and access are granted as per business needs, data and system ownership, and working agreements.
+
+==== Software
+
+While it is possible to build a consortium blockchain by using the public blockchains code base, this type of efforts are more suited to a Proof-of-Concept to validate approach.
+
+“Industrial strength” implementation would usually rely on specialized providers that have worked out a consensus protocols more suited for a reduced network of trusted participants.
+
+== General Impacts to Practice
+
+_"In theory there is no difference between theory and practice; in practice there is." - Yogi Berra_
+
+=== Potential Pitfalls
+
+The blockchain use of cryptography could lead to an assumption that it can be in use to security problems that don't match the technology use cases, and that would require instead to apply standard cryptographic solutions.
+
+To be considered:
+
+* The reliance on cryptographic techniques could introduce a false sense of security to InfoSec practitioners as it is familiar ground. For blockchain implementations relying on industry standard cryptographic techniques this bias may not be of consequence for its core functions,
+but could also result on failure to uncover other security issues with the implementation and on aspects that are not a core function of the blockchain
+
+* Another potential misleading assumption is that the blockchain solves all cryptographic challenges due to its inherent properties, while failing to understand that standard cryptographic challenges may still apply i.e key management
+ 
+* Blockchain technology is also the testing ground for cutting edge cryptographic techniques that are still undergoing investigation and research. Claims for the successful application of new technologies should be given special consideration for validation, i.e Zero Knowledge Proofs and Homomorphic Encryption as examples
+
+* Security practitioner should never attempt to perform technical validations of the cryptographic implementations unless they have specialized in this field, and should rely instead on traditional validations as per industry standards
+
+On the upside, the extensive use of cryptography to support business functions creates an opportunity for InfoSec practitioners participation in blockchain implementations.
+
+
+=== Decentralized Everything <TBD>
+
+While blockchain technology has yet to be proven at the enterprise level, its disintermediating powers makes it attractive to whole sectors looking for either operational efficiency or new products, which could lead to a large scale adoption.
+
+The evolution and adoption of blockchain technology could follow the same path as the enterprise adoption of internet technologies, where internal small deployments in a controlled perimeter eventually did away with large portions of the perimeter demarcation and where is hard to
+separate what is private and what is public (public cloud adoption).
+
+This is an observable imperative for integration as there are no practical implementations where one blockchain would solve all use cases, and the landscape includes a fragmentation of technologies designed around specific use cases.
+
+This type of potential future technology could evolve from from today’s efforts to include these phases: 
+
+* Private (consortium) and Public Blockchains as separate networks
+* Integration of Private blockchains with other Private blockchains
+* Integration of Private blockchains with Public blockchains
+* The merging of Private and Public blockchains in a model similar to today’s public cloud adoption
+
+If this trend materializes today’s enterprise security controls would be required to evolve and adapt, with a potential adoption of cryptoeconomic principles across whole swaths of IT systems.
+
+A natural extension of this evolution could alter the nature of the enterprise itself from client-server to peer-to-peer communication and consensus in distributed networks. This potential outcome would render many of today's Information Security practices obsolete in a decentralized world.
+
+==== Decentralized Applications<TBD>
+
+==== Decentralized Organizations
+
+Blockchain adoption could also extend beyond traditional use of IT systems to address business needs into an IT system that “are” the business, where organizations corporate core functions are expressed as a blockchain artifact. Examples of this type of radical approach to corporate operations is the Decentralized Autonomous Organization, where a whole business would be modeled and implemented on a blockchain.
+
+Those type of organizations could enter corporate InfoSec practitioners scope of work as they could be clients, partners or vendors of more traditional business. Performing an analysis of a DAO-like organization will present challenges as traditional security governance process may
+not be applicable to an organization with extreme automation.
+
+Another consideration is that on an extreme case a DAO-like organization will either not have a corporate security function, or the function would expressed on-chain by means of chain code (smart contracts).
+
+An even more extreme case would be in what is being called “the machine economy” where whole corporate ecosystems would be built as blockchain logic. This paper can not address the edge cases as the current processes for Information Security governance will need to be translated
+accordingly, which remains a future exercise for the industry.
+
+=== Terminology dilution
+
+==== “Crypto”
+
+The term “crypto” is not common among the Information Security practitioners as all of the literature uses the full term “cryptography” when indicating to the methods and technique used to establish secure communications in a hostile channel.
+
+The mainstream adoption of Bitcoin and similar implementations have introduced the term Cryptocurrency (or Cryptocurrency) into the public domain, which has been shortened to “Crypto”. This could lead to confusion or misinterpretations when discussing blockchain or cryptography in the context of Information Security.
+
+The term “Crypto” is being used to refer to all manner of blockchain implementations, even when there is no cryptocurrency. It is also used as to create new nouns to describe other aspects of blockchains. Examples are: Cryptoeconomics, CryptoAssets, CryptoTax, CryptoExchange and CryptoTrader among many.
+
+==== “Hash”
+
+In Information Security circles the term “hash” has a strict interpretation as being one of the industry standards for hashing protocols. The extensive use of hashing algorithms in public blockchains has made the term popular but wildly misunderstood.
+
+As a result discussions around “hashes” may not have the appropriate context to indicate industry standard algorithms vs. hashes as a cure-all for “crypto”. “Hashes” are also usually confused with
+encryption, or assumed to behave in the same manner.
+
+== Security Architecture Practice
+
+_“People ignore design that ignores people.” - Frank Chimero_
+
+=== Architectural view
+
+
+Blockchain technology could be described by the type or architecture under consideration:
+
+* Primary Architecture (Business): the business capabilities being fulfilled, as per the inclusion of specific business roles, business processes and business functions being addressed by the blockchain. It could also include the business cases and business requirements. This is the architecture that exposes the blockchain to high level legal or requirements
+* Secondary Architecture (Application): the blockchain as a business application that support the primary architecture. Includes the role and function of the layers, the logical components involved, the interfaces and their static and dynamic behaviors. This architecture also includes
+the cryptographic techniques as logical components of the implementation. It clearly defines what is “on-chain” vs “off-chain”
+
+* Tertiary Architecture (Infrastructure): The IT systems that support the blockchain as an application, and described in terms of infrastructure. Also includes the IT systems that provide operational support, including security operations, as well as the off-chain components that interact with the blockchain
+
+=== Cryptoeconomics
+
+Cryptographic primitives and techniques have a unique attribute among  all other security controls in the technical domain: is it cheaper for the defender to apply them than for an attacker to defeat the controls. 
+
+This cost asymmetry is an inherent property of current algorithms, and is supported by formal proofs and mathematical analysis of the techniques leading to adoption as technical standards.
+
+Open financial instruments that rely on Blockchain Technology are making use of cryptographic techniques to drive economic incentives, implemented as design mechanisms in those instruments. This usage has been branded “Cryptoeconomics”.
+
+Cryptoeconomics can be defined as the application of game theory costs models to cryptographic techniques to determine economic incentives in decentralized systems that is assumed to have adversarial actors, with the objective of leverage cryptography cost asymmetry to provide a level
+of fault tolerance and resolve conflicts. This field is not exclusive to blockchains but is a built-in property for blockchains.
+
+Cryptoeconomics plays a role in Blockchain Technology Threat Modeling as the functions that inhabit the boundary between on-chain and off-chain could upset the design balance of the system.
+
+While security controls costs are usually consider during their design, the application of game theory for developing security controls in the form of incentives by levering cryptography is a novel approach.
+
+=== Threat Modeling Considerations
+
+Given the diversity of potential configurations and applications for blockchains it is not possible to build a generic threat model that applies to all circumstances. Threat modeling can still be applied, but with special consideration for the blockchain specific architecture as a
+distributed system.
+
+When performing a threat model for a blockchain implementation the practitioner should pay special attention to: 
+* Functions that rely on data and transactions recorded in the blockchain (on-chain) and benefit from its inherent attributes
+* Functions that are executed outside the blockchain (off-chain) and therefore do not inherit any of the blockchain inherent attributes
+
+* Functions that cross the boundary between on-chain and off-chain processing. While the blockchain may be able to provide transaction trust among untrusted parties by means of a consensus mechanism, parties that are not participating in the consensus mechanism (off-chain) can
+not be said to be part of the transaction trust
+
+* Layering effect due to encapsulation of protocols that could result on expected attributes from one layer not to be present in the layers above
+
+=== Off-chain components vulnerabilities
+
+The trustless operation of a blockchain does not extend to components residing outside the consensus network. Those out-of-chain components don't benefit from any of the inherent or emergent blockchain attributes and can be susceptible to STRIDE threats (Spoofing, Tampering,
+Repudiation, Information disclosure, Denial of service and Elevation of privilege).
+
+These are examples of functions that are executed off-chain: 
+
+* Oracles acting as an appointed trusted source providing real world data to a blockchain
+* Applications that connect to the blockchain via APIs
+* IoT devices feeding data to an Oracle or an application
+* Inter-node messages that are not recorded in the ledger
+* Third parties such as Wallets and exchanges acting on behalf of a user that does not interact directly with the blockchain via a node participating in the consensus
+
+== Secure Software Development
+
+_“It's déjà vu all over again”. - Yogi Berra_
+
+=== Role of open source<TBD>
+
+=== Smart Contracts Vulnerabilities
+
+Smart contracts are on-chain code by means of a a programming language that could be Turing complete. The vulnerability in smart contracts could manifest in two forms:
+
+* As a venue for denial of service due malicious code impacting all nodes in engaged in achieving consensus
+* As a venue for exploiting coded features as to extract benefits from the blockchain, i.e re-allocate or destroy funds
+
+Potential Mitigation:
+
+* Exclude smart contracts from the implementation
+* Proofing and validation of smart contract code
+* Limit execution cycles for runaway code (i.e use of “gas” in Ethereum)
+
+== Security Operations
+_“The four most beautiful words in our common language: I told you so.” - Gore Vidal_
+
+=== Key Management for All<TBD>
+
+=== Denial of Services<TBD>
+
+=== Blockchain Driven Cyber Attacks<TBD>
+
+=== The blockchain as a security application/tool
+
+While the first blockchain was designed to address financial solutions, the blockchain can also be used to address to solve challenges for typical security solutions such as Identity, Trust and Access. Those applications could be found in the public and private domains.
+
+The rationale for using the blockchain as a security tool lies on the alignment of its inherent attributes with security quality attributes such as Confidentiality, Integrity and Non-repudiation.
+
+Alignment assumptions should be examined as the layering effect and use of off-chain components could have an impact on the overall security of the blockchain as a security application.
+
+
+== Security Governance<TBD>
+
+_“A foolish consistency is the hobgoblin of little minds” - Ralph Waldo Emerson_
+
+=== Supporting Frameworks<TBD>
+
+
+== Data Security Practice<TBD>
+
+_“Data is a precious thing and will last longer than the systems themselves.” – Tim Berners-Lee_
+
+=== Data Classification
+
+=== Privacy and Confidentiality considerations 
+
+=== Data Retention Challenges
+
+=== Shared Data Ownership
+
+=== “Reverse” Data Ownership
+
+== Identity and Access Management Practice<TBD>
+
+_“Be yourself; everyone else is already taken”.- Oscar Wilde_
+
+=== Centralized Identity
+
+=== Decentralized Identity
+
+==== Public Self-sovereign decentralized identity
+
+==== Private Identity Trust Fabrics
+
+:numbered!:
+
+[appendix]
+== Example Appendix
+
+AsciiDoc article appendices are just just article sections with 'specialsection' titles.
+
+== Appendix Sub-section
+Appendix sub-section at level 2.
+
+[bibliography]
+== Bibliography
+
+The bibliography list is a style of AsciiDoc bulleted list.
+
+[bibliography]
+- [[[taoup]]] Eric Steven Raymond. 'The Art of Unix
+  Programming'. Addison-Wesley. ISBN 0-13-142901-9.
+- [[[walsh-muellner]]] Norman Walsh & Leonard Muellner.
+  'DocBook - The Definitive Guide'. O'Reilly & Associates. 1999.
+  ISBN 1-56592-580-7.
+
+
+
+[glossary]
+== Glossary
+
+Glossaries are optional. Glossaries entries are an example of a style
+of AsciiDoc labeled lists.
+
+[glossary]
+A glossary term::
+  The corresponding (indented) definition.
+
+A second glossary term::
+  The corresponding (indented) definition.
+
+
+
+[index]
+== Index
+////////////////////////////////////////////////////////////////
+The index is normally left completely empty, it's contents being
+generated automatically by the DocBook toolchain.
+////////////////////////////////////////////////////////////////
