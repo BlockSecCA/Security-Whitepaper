@@ -295,7 +295,7 @@ Micro-transactions, Trading Platforms, Merchant Services, Digital Brokerages, Ex
 * Smart Property (IoT, Provenance Tracking)
 * Decentralized Commodities
 
-Blockchain can also be grouped as per their procurement model which includes cloud offerings (SaaS, PaaS, IaaS) or bundles open or closed source software.
+Blockchain can also be grouped as per their procurement model which includes cloud offerings (SaaS/PaaS/IaaS/BaaS), or bundles of open or closed source software.
 
 == Analysis
 
@@ -480,12 +480,11 @@ _"In theory there is no difference between theory and practice; in practice ther
 
 === Potential Pitfalls
 
-The blockchain use of cryptography could lead to an assumption that it can be in use to security problems that don't match the technology use cases, and that would require instead to apply standard cryptographic solutions.
+The blockchain use of cryptography could lead to the assumption that it a novel solution to standard cryptographic security challenges, without due consideration to the technology fitness to the problem.
 
 To be considered:
 
-* The reliance on cryptographic techniques could introduce a false sense of security to InfoSec practitioners as it is familiar ground. For blockchain implementations relying on industry standard cryptographic techniques this bias may not be of consequence for its core functions,
-but could also result on failure to uncover other security issues with the implementation and on aspects that are not a core function of the blockchain
+* The reliance on cryptographic techniques could introduce a false sense of security to InfoSec practitioners as it is familiar ground. For blockchain implementations relying on industry standard cryptographic techniques this bias may not be of consequence for its core functions. It could also result on failure to uncover other security issues with the implementation and on aspects that are not a core function of the blockchain
 
 * Another potential misleading assumption is that the blockchain solves all cryptographic challenges due to its inherent properties, while failing to understand that standard cryptographic challenges may still apply i.e key management
  
@@ -493,10 +492,7 @@ but could also result on failure to uncover other security issues with the imple
 
 * Security practitioner should never attempt to perform technical validations of the cryptographic implementations unless they have specialized in this field, and should rely instead on traditional validations as per industry standards
 
-On the upside, the extensive use of cryptography to support business functions creates an opportunity for InfoSec practitioners participation in blockchain implementations.
-
-
-=== Decentralized Everything <TBD>
+=== Decentralized Everything
 
 While blockchain technology has yet to be proven at the enterprise level, its disintermediating powers makes it attractive to whole sectors looking for either operational efficiency or new products, which could lead to a large scale adoption.
 
@@ -516,19 +512,40 @@ If this trend materializes today’s enterprise security controls would be requi
 
 A natural extension of this evolution could alter the nature of the enterprise itself from client-server to peer-to-peer communication and consensus in distributed networks. This potential outcome would render many of today's Information Security practices obsolete in a decentralized world.
 
-==== Decentralized Applications<TBD>
+==== Decentralized Applications
+
+While the term Decentralized Applications (Dapps) is in wide usage it has not been formally defined and could have several meanings. On its widest interpretation a Dapp relies on blockchain technology to replace or complement traditional technology stacks for data, logic, communication and presentation.
+
+Dapps operating in public blockchains would rely on the underlying cryptoeconomy to fund its operation, and can be expected to require the use of tokens by its users.  
+
+Dapps can be categorized by their:
+
+* Degree of decentralization: partial or complete.
+* Level of automation: smart contracts to autonomous agents.
+
+Dapps at the extreme end of the spectrum (completely decentralized and autonomous) would pose significant challenges for traditional system characterization as they will not meet technology and data ownership expectations as per currently adopted by information security practice. Potentially nobody would be in charge of the Dapp operation, data ownership would be distributed, and the application could be self-funded.
+
+Despite their radical outlooks Dapps are still susceptible to the same threats as regular applications in terms of code development and underlying infrastructure. 
+
+Dapps have an added disadvantage in that flaws in their logic are not easily corrected once deployed into a public network, which could be worsened by governance challenges for promoting the necessary updates which are contrary to blockchain immutability principles.
+
+Dapps operating in a private domain, if such application could be conceived, would not be much different  that traditional application as current ownership and governance rules would apply. There could still be challenges with updating immutable records and in dependency on how the blockchain technology was implemented for the Dapp.  
 
 ==== Decentralized Organizations
 
-Blockchain adoption could also extend beyond traditional use of IT systems to address business needs into an IT system that “are” the business, where organizations corporate core functions are expressed as a blockchain artifact. Examples of this type of radical approach to corporate operations is the Decentralized Autonomous Organization, where a whole business would be modeled and implemented on a blockchain.
+Blockchain adoption could also extend beyond traditional use of IT systems to address business needs into an IT system that “are” the business, where organizations corporate core functions are expressed as a blockchain artifact. Examples of this type of radical approach to corporate operations is the Decentralized Autonomous Organization (DAO), where a whole business would be modeled and implemented on a blockchain.
 
-Those type of organizations could enter corporate InfoSec practitioners scope of work as they could be clients, partners or vendors of more traditional business. Performing an analysis of a DAO-like organization will present challenges as traditional security governance process may
-not be applicable to an organization with extreme automation.
+A DAO could be considered to be a fully decentralized and autonomous Dapp with built-in governance rules to process changes to its functions. 
+
+Those type of organizations could enter corporate InfoSec practitioners scope of work as they could be clients, partners or vendors of more traditional business. Performing an analysis of a DAO-like organization will present challenges as traditional security governance process may not be applicable to an organization with extreme automation.
 
 Another consideration is that on an extreme case a DAO-like organization will either not have a corporate security function, or the function would expressed on-chain by means of chain code (smart contracts).
 
-An even more extreme case would be in what is being called “the machine economy” where whole corporate ecosystems would be built as blockchain logic. This paper can not address the edge cases as the current processes for Information Security governance will need to be translated
-accordingly, which remains a future exercise for the industry.
+An even more extreme case would be in what is being called “the machine economy” where whole corporate ecosystems would be built as blockchain logic. This paper can not address the edge cases as the current processes for Information Security governance will need to be translated accordingly, which remains a future exercise for the industry.
+
+At the time of this writing DAOs have no legal standing, which could impede security analysis of DAOs as service or product providers. The same impediment will be found when attempting to include boiler plate security language, or determining a DAO standing with regulatory compliance.
+
+There is an upside for DAOs security assessments as blockchain technology enables audit functions to a greater degree than any other business enabling  technologies. 
 
 === Terminology dilution
 
@@ -552,7 +569,6 @@ encryption, or assumed to behave in the same manner.
 _“People ignore design that ignores people.” - Frank Chimero_
 
 === Architectural view
-
 
 Blockchain technology could be described by the type or architecture under consideration:
 
@@ -593,8 +609,7 @@ not be said to be part of the transaction trust
 
 === Off-chain components vulnerabilities
 
-The trustless operation of a blockchain does not extend to components residing outside the consensus network. Those out-of-chain components don't benefit from any of the inherent or emergent blockchain attributes and can be susceptible to STRIDE threats (Spoofing, Tampering,
-Repudiation, Information disclosure, Denial of service and Elevation of privilege).
+The trust-less operation of a blockchain does not extend to components residing outside the consensus network. Those out-of-chain components don't benefit from any of the inherent or emergent blockchain attributes and can be susceptible to STRIDE threats (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service and Elevation of privilege).
 
 These are examples of functions that are executed off-chain: 
 
@@ -608,11 +623,25 @@ These are examples of functions that are executed off-chain:
 
 _“It's déjà vu all over again”. - Yogi Berra_
 
-=== Role of open source<TBD>
+Software development considerations in blockchain environments can be applied at three levels:
+
+* The code that delivers the blockchain functionality (communication, consensus, and data structures)
+* The smart contracts code base
+* The off-chain components
+
+Secure coding practices apply to all of the above, either in open source or closed source developments.
+
+There new considerations for traditional practices for public blockchains:
+* Applying corrective measures to defective code requires adoption by consensus
+* Blockchain immutability 
+
+
 
 === Smart Contracts Vulnerabilities
 
-Smart contracts are on-chain code by means of a a programming language that could be Turing complete. The vulnerability in smart contracts could manifest in two forms:
+Smart contracts are on-chain code by means of a a programming language that execute functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets.
+
+Smart contracts vulnerabilities could manifest in two forms:
 
 * As a venue for denial of service due malicious code impacting all nodes in engaged in achieving consensus
 * As a venue for exploiting coded features as to extract benefits from the blockchain, i.e re-allocate or destroy funds
