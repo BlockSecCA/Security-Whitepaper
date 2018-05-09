@@ -629,17 +629,25 @@ Software development considerations in blockchain environments can be applied at
 * The smart contracts code base
 * The off-chain components
 
-Secure coding practices apply to all of the above, either in open source or closed source developments.
+Secure coding practices apply to all of the above, either in open source or closed source environments, including:
 
-There new considerations for traditional practices for public blockchains:
-* Applying corrective measures to defective code requires adoption by consensus
-* Blockchain immutability 
+* Source code management
+* Static and Dynamic code analysis
+* Dependency analysis
+* Code reviews
+* Security testing
 
+There new considerations for public blockchains:
+
+* Applying corrective measures to the code base requires adoption by consensus, where disagreements could split the network and impact the blockchain security standing
+* Blockchain immutability makes breaking backwards compatibility with historical records unfeasible unless the network agrees to rewind transaction history. This practice reduces the integrity attributes of the impacted blockchain
 
 
 === Smart Contracts Vulnerabilities
 
-Smart contracts are on-chain code by means of a a programming language that execute functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets.
+Smart contracts are on-chain code that execute value altering functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets. Smart contracts automates whatever obligations are required by the business functions operating on the asset managed by the contracts.
+
+While the term "contract" is included in the name, the code should not be assumed to be part of a multi-party agreement or have legal standing. 
 
 Smart contracts vulnerabilities could manifest in two forms:
 
