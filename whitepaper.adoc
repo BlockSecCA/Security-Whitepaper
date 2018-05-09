@@ -545,7 +545,7 @@ An even more extreme case would be in what is being called “the machine econom
 
 At the time of this writing DAOs have no legal standing, which could impede security analysis of DAOs as service or product providers. The same impediment will be found when attempting to include boiler plate security language, or determining a DAO standing with regulatory compliance.
 
-There is an upside for DAOs security assessments as blockchain technology enables audit functions to a greater degree than any other business enabling  technologies. 
+There is an upside for DAOs security assessments as blockchain technology enables audit functions to a greater degree than any other business enabling  technologies, and automate discovery process for compliance. 
 
 === Terminology dilution
 
@@ -637,28 +637,35 @@ Secure coding practices apply to all of the above, either in open source or clos
 * Code reviews
 * Security testing
 
+In permissioned blockchains the issues with the code base would be addressed as per the governance agreements between the parties. 
+
 There new considerations for public blockchains:
 
 * Applying corrective measures to the code base requires adoption by consensus, where disagreements could split the network and impact the blockchain security standing
 * Blockchain immutability makes breaking backwards compatibility with historical records unfeasible unless the network agrees to rewind transaction history. This practice reduces the integrity attributes of the impacted blockchain
 
-
 === Smart Contracts Vulnerabilities
 
 Smart contracts are on-chain code that execute value altering functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets. Smart contracts automates whatever obligations are required by the business functions operating on the asset managed by the contracts.
 
-While the term "contract" is included in the name, the code should not be assumed to be part of a multi-party agreement or have legal standing. 
-
 Smart contracts vulnerabilities could manifest in two forms:
 
-* As a venue for denial of service due malicious code impacting all nodes in engaged in achieving consensus
-* As a venue for exploiting coded features as to extract benefits from the blockchain, i.e re-allocate or destroy funds
+* A denial of service due malicious contract code impacting all nodes in engaged in achieving consensus
+* The exploitation of flawed code to extract benefits from the blockchain, i.e re-allocate or destroy funds.
 
-Potential Mitigation:
+While the term "contract" is included in the name, the code should not be assumed to be part of a multi-party agreement or have legal standing. Smart contracts designed to be a representation of multi-party agreements would include the matching legal prose and a certification of the relationship of the prose to the code.
 
-* Exclude smart contracts from the implementation
+Declaring intention on parties obtaining financial gain via flawed smart contract code  is a contentious issue. Inconsistencies and flaws within those functions can be viewed as valid loopholes or re-interpretation of the rules by clever parties.
+
+Another differentiation for smart contracts lies on the potential liabilities for the coder or designer. This is due to smart contracts being used to control the distribution of tokens, which may to be in compliance with  securities laws or cause financial injury to parties relying on the smart contract. The designer or implementer of smart contracts could be considered to be executing the functions of a financial authority within the blockchain environment. 
+
+Smart contract vulnerabilities can be addressed by regular secure coding practices, and by:
+* Reviewing the cryptoeconomics of the asset design and associated code.
 * Proofing and validation of smart contract code
-* Limit execution cycles for runaway code (i.e use of “gas” in Ethereum)
+* Limit execution cycles for runaway code
+
+Addressing the legal ramifications of smart contracts requires to consult law professionals with a background or expertise on blockchain technology. 
+
 
 == Security Operations
 _“The four most beautiful words in our common language: I told you so.” - Gore Vidal_
