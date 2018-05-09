@@ -335,7 +335,7 @@ To be considered:
 
 * Network effects: a blockchain is as good as its size in terms of adoption as the technology is vulnerable when there is a small number of participating nodes. The larger the network, the better its chances at defeating attacks
 
-* Age and size of its data: a blockchain is also as good as the size of its ledger as it can be vulnerable when there is a small number or generated blocks. The larger its dataset is, the better its chances at defeating attacks
+* Age and size of its data: a blockchain security standing is directly proportional to the size of its ledger as the technology can be vulnerable when there is a small number or generated blocks. The larger its dataset is, the better its chances at defeating integrity attacks
 
 * Centralization/Decentralization: A blockchain implementation with a large number of nodes and ledger can still be rendered vulnerable as per the underlying infrastructure degree of centralization. The technology is especially susceptible to the centralization of the underlying
 network, which can be manipulated at its lower layers to impact peer-to-peer connectivity and consensus convergence
@@ -643,10 +643,11 @@ There new considerations for public blockchains:
 
 * Applying corrective measures to the code base requires adoption by consensus, where disagreements could split the network and impact the blockchain security standing
 * Blockchain immutability makes breaking backwards compatibility with historical records unfeasible unless the network agrees to rewind transaction history. This practice reduces the integrity attributes of the impacted blockchain
+* Proofing a smart contract may not address the cryptoeconomic implications of the contract execution in a large distributed network, and its interaction with other forms of automation and including other smart contracts. 
 
 === Smart Contracts Vulnerabilities
 
-Smart contracts are on-chain code that execute value altering functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets. Smart contracts automates whatever obligations are required by the business functions operating on the asset managed by the contracts.
+Smart contracts are on-chain code that execute value altering functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets. Smart contracts automate the obligations of parties engaged in transactions within blockchain environment. 
 
 Smart contracts vulnerabilities could manifest in two forms:
 
