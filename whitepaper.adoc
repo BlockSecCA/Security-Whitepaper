@@ -421,7 +421,7 @@ On the upside, public blockchains are self-auditing as the integrity and correct
 
 This form of “collective governance and assurance” has as the community taking votes by its participation in the network, to express their conformity or opposition to its current status and upcoming changes.
 
-===Consortium Blockchains
+=== Consortium Blockchains
 
 A consortium blockchain is one where participant trust is established before and outside a technical implementation, and is only open for participation as per formal agreement and  governance of the involved parties.
 
@@ -599,6 +599,7 @@ Given the diversity of potential configurations and applications for blockchains
 distributed system.
 
 When performing a threat model for a blockchain implementation the practitioner should pay special attention to: 
+
 * Functions that rely on data and transactions recorded in the blockchain (on-chain) and benefit from its inherent attributes
 * Functions that are executed outside the blockchain (off-chain) and therefore do not inherit any of the blockchain inherent attributes
 
