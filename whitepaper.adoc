@@ -187,6 +187,8 @@ by the use of hashes.
 
 The results of the computations are included in proposed new states to be processed by each node as per the validation and acceptance rules to determine the valid new state from a pool of competing proposals. This is also referred to as the consensus protocol.
 
+The computation can include arbitrary code to implement logic that consumes on-chain or of-chain to produce outputs that will be recorded as part of the new block formation. This is know as "smart contracts".
+
 ==== Interfaces
 
 Each participating node also includes standardized interfaces that enable the system integration with external systems and the node operator
