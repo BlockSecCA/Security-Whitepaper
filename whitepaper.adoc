@@ -803,11 +803,9 @@ Appendix sub-section at level 2.
 The bibliography list is a style of AsciiDoc bulleted list.
 
 [bibliography]
-- [[[taoup]]] Eric Steven Raymond. 'The Art of Unix
-  Programming'. Addison-Wesley. ISBN 0-13-142901-9.
-- [[[walsh-muellner]]] Norman Walsh & Leonard Muellner.
-  'DocBook - The Definitive Guide'. O'Reilly & Associates. 1999.
-  ISBN 1-56592-580-7.
+-  Satoshi Nakamoto. 'A Peer-to-Peer Electronic Cash System'. https://bitcoin.org/en/bitcoin-paper
+-  Andreas M. Antonopoulos. 'Mastering Bitcoin, 2nd Edition'. O'Reilly & Associates. July 1 2017.  ISBN  978-1491954386.
+- 
 
 
 
