@@ -65,7 +65,7 @@ _“Stay committed to your decisions, but stay flexible in your approach. - Tony
 This paper will discuss blockchain technology in two fronts:
 
 * A characterization of the blockchain as an IT System, and specifically about the attributes inherent to the technology and how those fit to expected security attributes (C.I.A triad). Also included are descriptions of design styles and implementation types
-* The impact to the Information Security Practice as performed by security architects, applications security SME’s, security operations, audit and other practice specializations
+* The impact to the Information Security Practice as performed by security architects, applications security subject matter experts, security operations, audit and other practice specializations
 
 The analysis will focus on issues or concerns specifics to the adoption or implementation of blockchain technologies as a type of distributed system.
 
@@ -648,9 +648,9 @@ There new considerations for public blockchains:
 * Blockchain immutability makes breaking backwards compatibility with historical records unfeasible unless the network agrees to rewind transaction history. This practice reduces the integrity attributes of the impacted blockchain
 * Proofing a smart contract may not address the cryptoeconomic implications of the contract execution in a large distributed network, and its interaction with other forms of automation and including other smart contracts. 
 
-=== Smart Contracts Vulnerabilities
+=== Smart Contracts Security
 
-Smart contracts are on-chain code that execute value altering functions directly against the blockchain defined assets, to create, destroy or re-allocate those assets. Smart contracts automate the obligations of parties engaged in transactions within blockchain environment. 
+Smart contracts are on-chain shared code that executes value altering functions, directly against the blockchain defined assets, to create, destroy or re-allocate those assets. Smart contracts automate the obligations of parties engaged in transactions within blockchain environment. 
 
 Smart contracts vulnerabilities could manifest in two forms:
 
@@ -659,16 +659,42 @@ Smart contracts vulnerabilities could manifest in two forms:
 
 While the term "contract" is included in the name, the code should not be assumed to be part of a multi-party agreement or have legal standing. Smart contracts designed to be a representation of multi-party agreements would include the matching legal prose and a certification of the relationship of the prose to the code.
 
-Declaring intention on parties obtaining financial gain via flawed smart contract code  is a contentious issue. Inconsistencies and flaws within those functions can be viewed as valid loopholes or re-interpretation of the rules by clever parties.
+Declaring intention on parties obtaining financial gain via flawed smart contract code  is a contentious issue. Inconsistencies and flaws within those functions can be viewed as valid loopholes, or re-interpretation of the rules by clever parties. This type of view is often referred to as "the code is the law", and it should be noted there is no current legal support for the doctrine of "law by code". 
 
 Another differentiation for smart contracts lies on the potential liabilities for the coder or designer. This is due to smart contracts being used to control the distribution of tokens, which may to be in compliance with  securities laws or cause financial injury to parties relying on the smart contract. The designer or implementer of smart contracts could be considered to be executing the functions of a financial authority within the blockchain environment. 
 
-Smart contract vulnerabilities can be addressed by regular secure coding practices, and by:
-* Reviewing the cryptoeconomics of the asset design and associated code.
-* Proofing and validation of smart contract code
+Smart contract vulnerabilities can be addressed by secure coding practices, as well as new type of development security controls:
+* Validating the cryptoeconomics of the asset design (mechanism design)
 * Limit execution cycles for runaway code
+* Detection of blocking or non-deterministic outcomes in contract code
+* Formal proofing of the contract code adherence to the legal prose
 
-Addressing the legal ramifications of smart contracts requires to consult law professionals with a background or expertise on blockchain technology. 
+Current code engineering and re-usability practices can also be applied to Smart Contracts. Code that has been reviewed and used widely can be used as a library of ready-made contracts , instead of writing code from scratch. This approach also has a build-in weaknesses and strengths:
+
+* Smart Contract code practices could evolves, as to accumulate solutions to common bugs and errors
+* Undetected bugs in Smart Contract libraries could result on "zero-day" style vulnerabilities, with  wide and deep impact as per the code re-use.
+
+=== Smart Contracts Legal and Regulatory Considerations
+
+There is an inherent difficulty on having smart contracts implement the letter of legal prose found in traditional contracts. This is due to how legal agreements are built with room for interpretation which may not be possible with self-executing code, where terms are not clearly defined, or to be determined at later date. 
+
+Smart contracts can help with questions on fact pertaining to a contract, as the blockchain can store the "truth" or "facts" assuming it was built to record contract state changes. As the blockchain does not reflect the real world any, off-chain facts will not be recorded in the chain. The blockchain can answer some questions of fact, but not all questions of fact. Blockchains are built for compliance testing for facts and events that are recorded in the chain.
+	
+One potential practice for addressing how legal prose is built with room for interpretation, by Bilateral Agreements as wrappers around "smart contracts". That approach still carries a weakness, as smart contracts may not be legally binding in some jurisdictions. Making smart contracts legally binding may require changes to statutes, as code will be a different medium to record terms. Legally binding smart contracts also may not be legally enforceable, as not all terms could be translated to code (i.e indemnity clauses that require natural language interpretation). The contract can be used to build mechanism or incentives for the terms (i.e escrow accounts code and conditional code).
+
+Complete absorption of legal terms into smart contracts will require to do away with the natural language, and its required interpretation. Eventually the legal profession will include coding practices, but the challenge posed by bug in the code may impede automatic dispute resolution.  Natural language challenges could be addressed by 
+* Having smart contracts defer to legal prose natural language contracts for some events (errors and disputes)
+* Use of the legal prose to enable amendments of terms (code) as it happens with regular contracts.
+
+Legal terms could change due to the availability of truths and facts recorded by a blockchain, and some terms may not be needed. The use of code against trusted facts and events could introduce the use of legal contracts against those (i.e performance, throughput, compliance, breaches  in real time). This relates to the inclusion of economic incentives in the smart contracts (i.e automation of payments). 
+
+Smart Contract code may still need to include natural language, for parties not familiar with the technology to be able to understand the agreement. A follow up question would be: can coding style or language address this via a trusted solution or mechanism?. Smart Contract platforms will need a mechanism to record legal prose alongside the code. 
+
+Dealing with Smart Contracts security issues at the platform level (i.e contract programing languages) may not require any changes to law, as platform issues could be outside the area of "smart legal contracts" and  to be dealt with by technologists. 
+	
+A current challenge for Smart Contracts is on coding Third Party Harm terms, required to address considions when the code behaves in a non-deterministic manner ( i.e calling external functions that prevents code execution). Another example of Third Party Harm is network slowdowns (i.e bad ICOs introducing spam or Denial of Services). The use of Bilateral Agreement wrappers, as proposed above, may need to include new language around third party damages or third party beneficiary rights (i.e supply chain use cases).
+
+Ultimately, addressing the legal ramifications of smart contracts requires to consult law professionals with a background or expertise on blockchain technology. 
 
 
 == Security Operations
