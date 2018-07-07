@@ -721,24 +721,63 @@ _“A foolish consistency is the hobgoblin of little minds” - Ralph Waldo Emer
 
 === Supporting Frameworks<TBD>
 
-
-== Data Security Practice<TBD>
+== Data Security Practice
 
 _“Data is a precious thing and will last longer than the systems themselves.” – Tim Berners-Lee_
 
-=== Data Classification
+Due to its inherent security attributes, blockchain technology would seem to be a good fit for data security solutions where high integrity and availability are required.
 
-=== Privacy and Confidentiality considerations 
+A review of use cases, either in public or consortium domains, would reveal that Database technology is not challenged by blockchain technology  when considering transaction performance, confidentiality and data retention requirements. 
 
-=== Data Retention Challenges
+Use of blockchain technology for data security, or to store or manage data, requires to pay attention to the data security requirements. Not doing so could lead to miss-applications of blockchain technology.
+
+=== Immutability and Data Retention
+While it may seem that blockchain immutability is an all-around positive attribute, it does creates some challenges with data management. Data that has been stored in a blockchain, specially public ones, is not susceptible to data retention policies. Once recorded, the data would remain as is for the lifetime of the blockchain.
+
+=== Privacy and Confidentiality considerations
+The first consideration would be regarding the classification of the data, specifically around the inclusion of data elements that require High Confidentiality. A subset of this would include Personal Identifiable Information (PII). 
+
+Public and Consortium Blockchains may not suitable for sharing data across parties, when the data needs to remain confidential to those parties. 
+
+Consortiums  could rely on off-chain compensating controls to address Confidentiality issues, as part of Consortium Governance. Public blockchains currently lack the controls required to provide forward looking Confidentiality requirements, and any data stored in a public blockchain could be considered to be at risk and potentially exposed in the future. 
+
+The Immutability security attribute of blockchain technology creates additional challenges for Confidentiality, as it makes it virtually impossible to address legacy data protection controls: it can neither be deleted or re-encrypted.
+
+Use of blockchain technology for storing PII is strongly not recommended, as it is not likely to comply with  privacy legislation:
+
+* Once the data is shared, it can not be unshared
+* Data encryption, as a confidentiality control, is exposed to technology obsolesce
+* Data that has been shared, and protected with current encryption standards, could be exposed in the future
+* Current technologies dont address data retention requirements
+* Data stored in a blockchain is immutable and cant be updated as per new encryption standards
 
 === Shared Data Ownership
+Data Ownership is another consideration for the use of blockchain technology for data sharing. Due to its distributed nature, blockchain networks dont provide clarity as to who owns the data: is it the originator, the processor or the node that stores it in a blockchain? 
 
-=== “Reverse” Data Ownership
+Consortium blockchain can address this challenge via off-chain controls, in the form of a Consortium Constitution. The constitution could provide the transacting parties assurances about data ownership, which could include the Consortium as a steward of the data.
+
+Data ownership in public blockchains is a complex matter, due to the anonymity of the parties involved in transactions. There are some potential solutions for establishing data ownership in a public blockchain:
+
+* Use of encryption, as the holder of the encryption key is a defacto owner
+* Using tokenization and smart contracts to address data ownership
+
+It should be noted that the solutions included above are suitable for data that does not require:
+
+* Confidentiality (i.e PII)
+* Retention Schedules
+* Updates and modifications
+
+An example of the type of data that could be owned in a blockchain include digital art, which is meant to be visible to all, but with defined ownership.
+
+=== Transaction Confidentiality
+Adoption of blockchain technology should also include considerations as to the technology fitness to maintain transaction confidentiality. The first generation blockchains did not include this control, due to the reliance on network broadcasts (gossip).
+
+Consortium, and new generation of public blockchain technologies, include the controls to provide transaction confidentiality in a distributed network. It is worth noting that transaction confidentiality controls will not address data confidentiality requirements, as those are two different security concerns. 
 
 == Identity and Access Management Practice<TBD>
 
 _“Be yourself; everyone else is already taken”.- Oscar Wilde_
+
 
 === Centralized Identity
 
