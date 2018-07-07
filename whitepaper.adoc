@@ -734,14 +734,14 @@ Use of blockchain technology for data security, or to store or manage data, requ
 === Immutability and Data Retention
 While it may seem that blockchain immutability is an all-around positive attribute, it does creates some challenges with data management. Data that has been stored in a blockchain, specially public ones, is not susceptible to data retention policies. Once recorded, the data would remain as is for the lifetime of the blockchain.
 
+The Immutability security attribute of blockchain technology creates additional challenges for Confidentiality, as it makes it virtually impossible to address legacy data protection controls: it can neither be deleted or re-encrypted.
+
 === Privacy and Confidentiality considerations
 The first consideration would be regarding the classification of the data, specifically around the inclusion of data elements that require High Confidentiality. A subset of this would include Personal Identifiable Information (PII). 
 
 Public and Consortium Blockchains may not suitable for sharing data across parties, when the data needs to remain confidential to those parties. 
 
 Consortiums  could rely on off-chain compensating controls to address Confidentiality issues, as part of Consortium Governance. Public blockchains currently lack the controls required to provide forward looking Confidentiality requirements, and any data stored in a public blockchain could be considered to be at risk and potentially exposed in the future. 
-
-The Immutability security attribute of blockchain technology creates additional challenges for Confidentiality, as it makes it virtually impossible to address legacy data protection controls: it can neither be deleted or re-encrypted.
 
 Use of blockchain technology for storing PII is strongly not recommended, as it is not likely to comply with  privacy legislation:
 
@@ -800,12 +800,12 @@ Appendix sub-section at level 2.
 [bibliography]
 == Bibliography
 
-The bibliography list is a style of AsciiDoc bulleted list.
-
 [bibliography]
--  Satoshi Nakamoto. 'A Peer-to-Peer Electronic Cash System'. https://bitcoin.org/en/bitcoin-paper
--  Andreas M. Antonopoulos. 'Mastering Bitcoin, 2nd Edition'. O'Reilly & Associates. July 1 2017.  ISBN  978-1491954386.
+- Satoshi Nakamoto. 'A Peer-to-Peer Electronic Cash System'. https://bitcoin.org/en/bitcoin-paper
+- Andreas M. Antonopoulos. 'Mastering Bitcoin, 2nd Edition'. O'Reilly & Associates. July 1 2017.  ISBN  978-1491954386
 - 
+
+
 
 
 
