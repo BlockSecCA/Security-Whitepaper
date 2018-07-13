@@ -664,6 +664,7 @@ Declaring intention on parties obtaining financial gain via flawed smart contrac
 Another differentiation for smart contracts lies on the potential liabilities for the coder or designer. This is due to smart contracts being used to control the distribution of tokens, which may to be in compliance with  securities laws or cause financial injury to parties relying on the smart contract. The designer or implementer of smart contracts could be considered to be executing the functions of a financial authority within the blockchain environment. 
 
 Smart contract vulnerabilities can be addressed by secure coding practices, as well as new type of development security controls:
+
 * Validating the cryptoeconomics of the asset design (mechanism design)
 * Limit execution cycles for runaway code
 * Detection of blocking or non-deterministic outcomes in contract code
