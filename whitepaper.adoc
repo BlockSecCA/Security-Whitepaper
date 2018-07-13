@@ -749,7 +749,7 @@ Use of blockchain technology for storing PII is strongly not recommended, as it 
 * Once the data is shared, it can not be unshared
 * Data encryption, as a confidentiality control, is exposed to technology obsolesce
 * Data that has been shared, and protected with current encryption standards, could be exposed in the future
-* Current technologies dont address data retention requirements
+* Current technologies don't address data retention requirements
 * Data stored in a blockchain is immutable and cant be updated as per new encryption standards
 
 === Shared Data Ownership
