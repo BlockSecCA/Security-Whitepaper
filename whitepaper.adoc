@@ -654,12 +654,12 @@ Smart contracts are on-chain shared code that executes value altering functions,
 
 Smart contracts vulnerabilities could manifest in two forms:
 
-* A denial of service due malicious contract code impacting all nodes in engaged in achieving consensus
+* A denial of service due malicious contract code impacting all nodes in engaged in achieving consensus <-- Dont understand what you mean.
 * The exploitation of flawed code to extract benefits from the blockchain, i.e re-allocate or destroy funds.
 
-While the term "contract" is included in the name, the code should not be assumed to be part of a multi-party agreement or have legal standing. Smart contracts designed to be a representation of multi-party agreements would include the matching legal prose and a certification of the relationship of the prose to the code.
+While the term "contract" is included in the name, the code should not be assumed to be part of a multi-party agreement or have legal standing. Smart contracts are designed to be a representation of multi-party agreements could include the matching legal prose and a certification of the relationship of the prose to the code. 
 
-Declaring intention on parties obtaining financial gain via flawed smart contract code  is a contentious issue. Inconsistencies and flaws within those functions can be viewed as valid loopholes, or re-interpretation of the rules by clever parties. This type of view is often referred to as "the code is the law", and it should be noted there is no current legal support for the doctrine of "law by code". 
+Declaring intention of parties obtaining financial gain via flawed smart contract code  is a contentious issue. Inconsistencies and flaws within those functions can be viewed as valid loopholes, or re-interpretation of the rules by clever parties. This type of view is often referred to as "the code is the law", and it should be noted there is no current legal support for the doctrine of "law by code". 
 
 Another differentiation for smart contracts lies on the potential liabilities for the coder or designer. This is due to smart contracts being used to control the distribution of tokens, which may to be in compliance with  securities laws or cause financial injury to parties relying on the smart contract. The designer or implementer of smart contracts could be considered to be executing the functions of a financial authority within the blockchain environment. 
 
@@ -670,18 +670,18 @@ Smart contract vulnerabilities can be addressed by secure coding practices, as w
 * Detection of blocking or non-deterministic outcomes in contract code
 * Formal proofing of the contract code adherence to the legal prose
 
-Current code engineering and re-usability practices can also be applied to Smart Contracts. Code that has been reviewed and used widely can be used as a library of ready-made contracts , instead of writing code from scratch. This approach also has a build-in weaknesses and strengths:
+Current code engineering and re-usability practices can also be applied to Smart Contracts. Code that has been reviewed and used widely can be used as a library of ready-made contracts , instead of writing code from scratch. This approach also has a built-in weaknesses and strengths:
 
-* Smart Contract code practices could evolves, as to accumulate solutions to common bugs and errors
-* Undetected bugs in Smart Contract libraries could result on "zero-day" style vulnerabilities, with  wide and deep impact as per the code re-use.
+* Smart Contract code practices could evolve, as to accumulate solutions to common bugs and errors
+* Undetected bugs in Smart Contract libraries could result on "zero-day" style vulnerabilities, with  wide and deep impact due to code re-use.
 
 === Smart Contracts Legal and Regulatory Considerations
 
-There is an inherent difficulty on having smart contracts implement the letter of legal prose found in traditional contracts. This is due to how legal agreements are built with room for interpretation which may not be possible with self-executing code, where terms are not clearly defined, or to be determined at later date. 
+There is an inherent difficulty in having smart contracts implement the letter of legal prose found in traditional contracts. This is due to how legal agreements are built with room for interpretation which may not be possible with self-executing code, where terms are not clearly defined, or to be determined at later date. 
 
-Smart contracts can help with questions on fact pertaining to a contract, as the blockchain can store the "truth" or "facts" assuming it was built to record contract state changes. As the blockchain does not reflect the real world any, off-chain facts will not be recorded in the chain. The blockchain can answer some questions of fact, but not all questions of fact. Blockchains are built for compliance testing for facts and events that are recorded in the chain.
+Smart contracts can help with questions on facts pertaining to a contract, as the blockchain can store the "truth" or "facts" assuming it was built to record contract state changes. As the blockchain does not reflect the real world, any off-chain facts will not be recorded on the chain. The blockchain can answer some questions of fact, but not all questions of fact. Blockchains are built for compliance testing of facts and events that are recorded on the chain.
 	
-One potential practice for addressing how legal prose is built with room for interpretation, by using Bilateral Agreements as wrappers around "smart contracts". That approach still carries a weakness, as smart contracts may not be legally binding in some jurisdictions. Making smart contracts legally binding may require changes to statutes, as code will be a different medium to record terms. Legally binding smart contracts also may not be legally enforceable, as not all terms could be translated to code (i.e indemnity clauses that require natural language interpretation). The contract can be used to build mechanism or incentives for the terms (i.e escrow accounts code and conditional code).
+One potential practice of addressing how legal prose is built with room for interpretation, by using Bilateral Agreements as wrappers around "smart contracts". That approach still carries a weakness, as smart contracts may not be legally binding in some jurisdictions. Making smart contracts legally binding may require changes to statutes, as code will be a different medium to record terms. Legally binding smart contracts also may not be legally enforceable, as not all terms could be translated to code (i.e indemnity clauses that require natural language interpretation). The contract can be used to build mechanism or incentives for the terms (i.e escrow accounts code and conditional code).
 
 Complete absorption of legal terms into smart contracts will require to do away with the natural language, and its required interpretation. Eventually the legal profession will include coding practices, but the challenge posed by bugs in the code may impede automatic dispute resolution.  For the time being, natural language challenges could be addressed by 
 * Having smart contracts defer to legal prose natural language contracts for some events (errors and disputes)
